@@ -30,26 +30,22 @@ public class BalancedBrackets {
         boolean noClosingBracket = firstCloseBracket == -1;
         boolean noOpeningBracket = firstOpenBracket == -1;
 
-        boolean evenOpenOneCloseBrackets = (
+        boolean evenNumOpenOneCloseBrackets = (
             firstOpenBracket != lastOpenBracket && 
-            firstCloseBracket == lastCloseBracket
-        );
+            firstCloseBracket == lastCloseBracket);
 
-        boolean evenCloseOneOpenBrackets = (
+        boolean evenNumCloseOneOpenBrackets = (
             firstCloseBracket != lastCloseBracket && 
-            firstOpenBracket == lastOpenBracket
-        );
+            firstOpenBracket == lastOpenBracket);
 
-        boolean answer;
         if (noClosingBracket || noOpeningBracket) {
-            answer = false;
-        } else if (evenOpenOneCloseBrackets || evenCloseOneOpenBrackets) {
-            answer = false;
+            return false;
+        } else if (evenNumOpenOneCloseBrackets || evenNumCloseOneOpenBrackets) {
+            return false;
         } else {
-            answer = lastOpenBracket < lastCloseBracket;
+            return lastOpenBracket < lastCloseBracket;
         }
 
-        return answer;
     }
 
 }

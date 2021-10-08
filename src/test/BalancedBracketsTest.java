@@ -14,22 +14,22 @@ public class BalancedBracketsTest {
     }
 
     @Test
-    public void balancedBracketsReturnsTrue() {
+    public void balancedBracketsReturnTrue() {
         assertTrue(BalancedBrackets.hasBalancedBrackets("[]"));
     }
 
     @Test
-    public void wrongOrderReturnsFalse() {
+    public void unbalancedBracketsReturnFalse() {
         assertFalse(BalancedBrackets.hasBalancedBrackets("]["));
     }
 
     @Test
-    public void twoOpenReturnsFalse() {
+    public void twoOpenBracketsReturnFalse() {
         assertFalse(BalancedBrackets.hasBalancedBrackets("[["));
     }
 
     @Test
-    public void twoClosedReturnsFalse() {
+    public void twoClosedBracketsReturnFalse() {
         assertFalse(BalancedBrackets.hasBalancedBrackets("]]"));
     }
 
@@ -39,38 +39,33 @@ public class BalancedBracketsTest {
     }
 
     @Test
+    public void nonEmptyStringReturnsFalse(){
+        assertFalse(BalancedBrackets.hasBalancedBrackets("LaunchCode"));
+    }
+
+    @Test
     public void stringEnclosedInBracketsReturnsTrue() {
         assertTrue(BalancedBrackets.hasBalancedBrackets("[inBrackets]"));
     }
 
-    @Test
-    public void singleOpenBracketReturnsFalse() {
-        assertFalse(BalancedBrackets.hasBalancedBrackets("[LaunchCode"));
-    }
 
     @Test
-    public void singleCloseBracketReturnsFalse() {
-        assertFalse(BalancedBrackets.hasBalancedBrackets("LaunchCode]"));
-    }
-
-    @Test
-    public void evenOpenOddCloseReturnsFalse() {
+    public void evenOpenOneCloseReturnsFalse() {
         assertEquals(false, BalancedBrackets.hasBalancedBrackets("[brac[kets]"));
     }
 
     @Test
-    public void evenCloseOddOpenReturnsFalse() {
+    public void evenCloseOneOpenReturnsFalse() {
         assertEquals(false, BalancedBrackets.hasBalancedBrackets("[onetwothr]eefour]"));
     }
 
-
     @Test
-    public void twoBalancedBracketsReturnsTrue() {
+    public void twoBalancedBracketsReturnTrue() {
         assertTrue(BalancedBrackets.hasBalancedBrackets("[one]two[threefour]"));
     }
 
     @Test
-    public void twoUnbalancedBracketsReturnsFalse() {
+    public void twoUnbalancedBracketsReturnFalse() {
         assertFalse(BalancedBrackets.hasBalancedBrackets("]one]two[threefour["));
     }
 
@@ -80,34 +75,26 @@ public class BalancedBracketsTest {
     }
 
     @Test
-    public void threeUnbalancedBracketsReturnsFalse() {
+    public void threeUnbalancedBracketsReturnFalse() {
         assertFalse(BalancedBrackets.hasBalancedBrackets("]one]two][[threefour["));
     }
 
 
     @Test
-    public void oddNumOfMostlyUnbalancedBracketsReturnsFalse() {
+    public void oddNumOfMostlyUnbalancedBracketsReturnFalse() {
         assertFalse(BalancedBrackets.hasBalancedBrackets("]]]o]e]tw][[o][[[[[[[t]]]hr]]]eef][[[our["));
     }
 
     @Test
-    public void evenNumOfMostlyUnbalancedBracketsReturnsFalse() {
+    public void evenNumOfMostlyUnbalancedBracketsReturnFalse() {
         assertFalse(BalancedBrackets.hasBalancedBrackets("]]]o]e]tw][[o][[[[[[[t]]]hr]]]eef][[[our[["));
     }                                            
 
     @Test
-    public void manyBalancedBracketsSet() {
+    public void manyBalancedBracketsSetReturnsTrue() {
         assertTrue(BalancedBrackets.hasBalancedBrackets("[[[o]e]tw][[o]][[[[[[t]]]hr]]]eef[][[our]"));
     }   
     
-    @Test
-    public void largeNumBracketsAllUnbalancedReturnsFalse() {
-        assertFalse(BalancedBrackets.hasBalancedBrackets("]]]]]]]]]]]]]]]][[[[[[[[[[[[[[[["));
-    } 
-
-    public void largeNumBracketsAllBalancedReturnsTrue() {
-        assertTrue(BalancedBrackets.hasBalancedBrackets("[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]"));
-    } 
-    
+ 
      
 }
